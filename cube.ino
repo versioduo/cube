@@ -16,10 +16,10 @@
 
 V2DEVICE_METADATA("com.versioduo.cube", 1, "versioduo:samd:wave");
 
-static V2LED::WS2812 LED(2, PIN_LED_WS2812, &sercom5, SPI_PAD_3_SCK_1, PIO_SERCOM_ALT);
-static V2LED::WS2812 LEDExt(64, PIN_LED_WS2812_EXT, &sercom4, SPI_PAD_0_SCK_1, PIO_SERCOM);
-static V2Link::Port Plug(&SerialPlug, PIN_SERIAL_PLUG_TX_ENABLE);
-static V2Link::Port Socket(&SerialSocket, PIN_SERIAL_SOCKET_TX_ENABLE);
+static V2LED::WS2812       LED(2, PIN_LED_WS2812, &sercom5, SPI_PAD_3_SCK_1, PIO_SERCOM_ALT);
+static V2LED::WS2812       LEDExt(64, PIN_LED_WS2812_EXT, &sercom4, SPI_PAD_0_SCK_1, PIO_SERCOM);
+static V2Link::Port        Plug(&SerialPlug, PIN_SERIAL_PLUG_TX_ENABLE);
+static V2Link::Port        Socket(&SerialSocket, PIN_SERIAL_SOCKET_TX_ENABLE);
 static V2Base::Analog::ADC ADC(1);
 
 static class Power : public V2PowerSupply {
@@ -70,8 +70,9 @@ private:
       if (!Power.on(continuous))
         return false;
 
-    } else
+    } else {
       Power.off();
+    }
 
     return true;
   }
@@ -283,21 +284,21 @@ private:
   };
 
   const uint8_t _channel;
-  bool _delayResetParameters{};
+  bool          _delayResetParameters{};
 
-  float _frequency{};
+  float  _frequency{};
   Phasor _phasor;
 
   struct {
-    bool active{};
-    float rate{};
+    bool   active{};
+    float  rate{};
     Phasor phasor;
-    bool on{};
+    bool   on{};
   } _vibrato;
 
   struct {
-    bool active{};
-    float amount{};
+    bool   active{};
+    float  amount{};
     Phasor phasor;
   } _distortion;
 
@@ -376,9 +377,9 @@ private:
   }
 
   float getSample() override {
-    const bool reset  = _phasor.step();
-    const float phase = _phasor;
-    float sample      = getMixedSample(phase);
+    const bool  reset  = _phasor.step();
+    const float phase  = _phasor;
+    float       sample = getMixedSample(phase);
 
     // https://en.wikipedia.org/wiki/Phase_distortion_synthesis
     if (_distortion.active) {
@@ -526,7 +527,7 @@ private:
 
   struct {
     uint32_t usec{};
-    bool notes{};
+    bool     notes{};
   } _timeout;
 
   float _rainbow{};
@@ -545,7 +546,7 @@ private:
     int16_t pitchbend{};
   } _play;
 
-  uint8_t _volume{100};
+  uint8_t                       _volume{100};
   V2Music::Playing<Notes.count> _playing;
 
   virtual void stopMIDIFile();
@@ -1024,15 +1025,15 @@ private:
 // Dispatch Link packets.
 static class Link : public V2Link {
 public:
-  constexpr Link() : V2Link(&Plug, &Socket) {
+  Link() : V2Link(&Plug, &Socket) {
     Device.link = this;
   }
 
 private:
   V2MIDI::Packet _midi{};
 
-  // Receive a host event from our parent device
-  void receivePlug(V2Link::Packet *packet) override {
+  // Receive a host event from our parent device.
+  void receivePlug(V2Link::Packet* packet) override {
     if (packet->getType() == V2Link::Packet::Type::MIDI) {
       packet->receive(&_midi);
       Device.dispatch(&Plug, &_midi);
@@ -1040,7 +1041,7 @@ private:
   }
 
   // Forward children device events to the host.
-  void receiveSocket(V2Link::Packet *packet) override {
+  void receiveSocket(V2Link::Packet* packet) override {
     if (packet->getType() == V2Link::Packet::Type::MIDI) {
       uint8_t address = packet->getAddress();
       if (address == 0x0f)
@@ -1059,7 +1060,7 @@ static class MIDIFile : public V2MIDI::File::Tracks {
 public:
   constexpr MIDIFile() : V2MIDI::File::Tracks(MIDISong) {}
 
-  bool handleSend(uint16_t track, V2MIDI::Packet *packet) {
+  bool handleSend(uint16_t track, V2MIDI::Packet* packet) {
     Device.dispatch(&Device.usb.midi, packet);
     return true;
   }
@@ -1075,7 +1076,7 @@ public:
 
 void Device::exportSystemMIDIFile(JsonObject json) {
   JsonObject jsonTrack = json["track"].to<JsonObject>();
-  char s[128];
+  char       s[128];
   if (MIDIFile.copyTag(V2MIDI::File::Event::Meta::Title, s, sizeof(s)) > 0)
     jsonTrack["title"] = s;
 
@@ -1136,7 +1137,7 @@ void setup() {
   digitalWrite(PIN_CODEC_MUTE, LOW);
   pinMode(PIN_CODEC_MUTE, OUTPUT);
 
-  Codec.begin([](Adafruit_ZeroDMA *dma) { Codec.fillNextBuffer(); });
+  Codec.begin([](Adafruit_ZeroDMA* dma) { Codec.fillNextBuffer(); });
   Synth.begin();
 
   Button.begin();
