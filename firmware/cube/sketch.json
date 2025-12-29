@@ -1,0 +1,6 @@
+{
+  "cpu": {
+    "fqbn": "versioduo:samd:wave",
+    "name": "V2 cube"
+  }
+}
