@@ -438,12 +438,12 @@ static constexpr struct Configuration {
   float gain{-30};
   float tuning{};
 
-  // LED color.
+  // LED colour.
   struct {
     uint8_t h{15};
     uint8_t s{40};
     uint8_t v{100};
-  } color;
+  } colour;
 } ConfigurationDefault;
 
 static class Device : public V2Device {
@@ -505,9 +505,9 @@ public:
     _playing.reset();
 
     _rainbow = 0;
-    _led.h   = (float)config.color.h / 127.f * 360.f;
-    _led.s   = (float)config.color.s / 127.f;
-    _led.v   = (float)config.color.v / 127.f;
+    _led.h   = (float)config.colour.h / 127.f * 360.f;
+    _led.s   = (float)config.colour.s / 127.f;
+    _led.v   = (float)config.colour.v / 127.f;
 
     LED.setHSV(V2Colour::Orange, 1, 0.25);
     LEDExt.reset();
@@ -528,7 +528,7 @@ private:
 
   float _rainbow{};
 
-  // LED color.
+  // LED colour.
   struct {
     float h;
     float s;
@@ -809,9 +809,9 @@ private:
 
     {
       JsonObject setting = json.add<JsonObject>();
-      setting["type"]    = "color";
+      setting["type"]    = "colour";
       setting["title"]   = "Light";
-      setting["path"]    = "color";
+      setting["path"]    = "colour";
     }
   }
 
@@ -822,11 +822,11 @@ private:
     json["#tuning"] = "Frequency adjustment in cents (-100 .. 100)";
     json["tuning"]  = config.tuning;
 
-    json["#color"]    = "The LED color. Hue, saturation, brightness, 0..127";
-    JsonArray jsonLed = json["color"].to<JsonArray>();
-    jsonLed.add(config.color.h);
-    jsonLed.add(config.color.s);
-    jsonLed.add(config.color.v);
+    json["#colour"]   = "The LED colour. Hue, saturation, brightness, 0..127";
+    JsonArray jsonLed = json["colour"].to<JsonArray>();
+    jsonLed.add(config.colour.h);
+    jsonLed.add(config.colour.s);
+    jsonLed.add(config.colour.v);
   }
 
   void importConfiguration(JsonObject json) override {
@@ -852,25 +852,25 @@ private:
       Codec.adjustSamplerate(config.tuning);
     }
 
-    JsonArray jsonLed = json["color"];
+    JsonArray jsonLed = json["colour"];
     if (jsonLed) {
-      uint8_t color = jsonLed[0];
-      if (color > 127)
-        color = 127;
-      config.color.h = color;
-      _led.h         = (float)color / 127.f * 360.f;
+      uint8_t colour = jsonLed[0];
+      if (colour > 127)
+        colour = 127;
+      config.colour.h = colour;
+      _led.h          = (float)colour / 127.f * 360.f;
 
       uint8_t saturation = jsonLed[1];
       if (saturation > 127)
         saturation = 127;
-      config.color.s = saturation;
-      _led.s         = (float)saturation / 127.f;
+      config.colour.s = saturation;
+      _led.s          = (float)saturation / 127.f;
 
       uint8_t brightness = jsonLed[2];
       if (brightness > 127)
         brightness = 127;
-      config.color.v = brightness;
-      _led.v         = (float)brightness / 127.f;
+      config.colour.v = brightness;
+      _led.v          = (float)brightness / 127.f;
     }
   }
 
