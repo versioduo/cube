@@ -20,7 +20,7 @@ static V2Base::Analog::ADC ADC(1);
 
 static class Power : public V2PowerSupply {
 public:
-  constexpr Power() : V2PowerSupply({.min{6}, .max{26}}) {}
+  constexpr Power() : V2PowerSupply({.min{12}, .max{26}}) {}
 
 private:
   float handleMeasurement() override {
