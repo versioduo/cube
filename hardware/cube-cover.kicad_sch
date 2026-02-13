@@ -1,13 +1,13 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "6c8448b4-b04d-47e1-934e-e40cbe27a7be")
 	(paper "A4")
 	(title_block
 		(title "V2 cube")
-		(date "2023-07-17")
-		(rev "1")
+		(date "2026-02-13")
+		(rev "2023-07-17")
 		(company "Versio Duo")
 		(comment 1 "Cover")
 	)
@@ -103,6 +103,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_Artwork:V2-logo"
 			(exclude_from_sim no)
@@ -118,17 +119,16 @@
 				)
 			)
 			(property "Value" "V2-logo"
-				(at -4.572 -5.588 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 					(hide yes)
 				)
 			)
 			(property "Footprint" "V2_Artwork:Logo_Small"
-				(at 0 -8.128 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -154,28 +154,10 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Enable" "0"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "V2_Artwork:Logo_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
 			(symbol "V2-logo_1_0"
 				(polyline
 					(pts
-						(xy -3.302 2.54) (xy 3.048 2.54) (xy 3.048 -2.54) (xy -3.302 -2.54) (xy -3.302 -1.27)
+						(xy -3.302 2.54) (xy 2.54 2.54) (xy 2.54 -2.54) (xy -3.302 -2.54) (xy -3.302 -1.27)
 					)
 					(stroke
 						(width 0.3)
@@ -185,15 +167,19 @@
 						(type none)
 					)
 				)
+			)
+			(symbol "V2-logo_1_1"
 				(text "V2"
-					(at -0.2055 -0.4053 0)
+					(at -0.508 -0.254 0)
 					(effects
 						(font
 							(size 3 3)
+							(thickness 0.375)
 						)
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_Mechanical:MountingHole_1mm"
 			(pin_names
@@ -210,7 +196,7 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole_1mm"
+			(property "Value" "1mm"
 				(at 0 3.175 0)
 				(effects
 					(font
@@ -219,7 +205,7 @@
 				)
 			)
 			(property "Footprint" "V2_Mechanical:MountingHole_1mm"
-				(at 0 -5.08 0)
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -237,16 +223,7 @@
 				)
 			)
 			(property "Description" "Mounting Hole without connection"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Enable" "0"
-				(at 0 0 0)
+				(at 0 -8.89 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -285,11 +262,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_Mechanical:MountingHole_2mm_Pad_4mm"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -301,7 +283,7 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole_2mm_Pad_4mm"
+			(property "Value" "2mm_Pad_4mm"
 				(at 0 4.445 0)
 				(effects
 					(font
@@ -328,16 +310,7 @@
 				)
 			)
 			(property "Description" "Mounting Hole with connection"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Enable" "0"
-				(at 0 0 0)
+				(at 0 -13.97 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -396,11 +369,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_Mechanical:MountingHole_3mm_Pad_8mm"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -412,7 +390,7 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole_3mm_Pad_8mm"
+			(property "Value" "3mm_Pad_8mm"
 				(at 0 4.445 0)
 				(effects
 					(font
@@ -439,16 +417,7 @@
 				)
 			)
 			(property "Description" "Mounting Hole with connection"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Sim.Enable" "0"
-				(at 0 0 0)
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -507,6 +476,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_PCB_Devices:Button-top"
 			(exclude_from_sim no)
@@ -579,6 +549,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_PCB_Devices:EtherCon_Horizontal"
 			(exclude_from_sim no)
@@ -661,6 +632,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "V2_PCB_Devices:USB-C_Horizontal"
 			(exclude_from_sim no)
@@ -721,8 +693,8 @@
 			(symbol "USB-C_Horizontal_0_1"
 				(arc
 					(start -5.08 0)
-					(mid -4.3361 -1.7961)
-					(end -2.54 -2.54)
+					(mid -4.3361 1.7961)
+					(end -2.54 2.54)
 					(stroke
 						(width 0)
 						(type default)
@@ -732,21 +704,9 @@
 					)
 				)
 				(arc
-					(start -2.54 2.54)
-					(mid -4.3361 1.7961)
+					(start -2.54 -2.54)
+					(mid -4.3361 -1.7961)
 					(end -5.08 0)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -2.54) (xy 2.54 -2.54)
-					)
 					(stroke
 						(width 0)
 						(type default)
@@ -767,9 +727,21 @@
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy -2.54 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(arc
-					(start 2.54 -2.54)
-					(mid 4.3361 -1.7961)
+					(start 2.54 2.54)
+					(mid 4.3361 1.7961)
 					(end 5.08 0)
 					(stroke
 						(width 0)
@@ -781,8 +753,8 @@
 				)
 				(arc
 					(start 5.08 0)
-					(mid 4.3361 1.7961)
-					(end 2.54 2.54)
+					(mid 4.3361 -1.7961)
+					(end 2.54 -2.54)
 					(stroke
 						(width 0)
 						(type default)
@@ -792,8 +764,9 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
-		(symbol "V2_Production:Order_Number"
+		(symbol "V2_Production:Revision"
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -805,7 +778,7 @@
 					)
 				)
 			)
-			(property "Value" "Order_Number"
+			(property "Value" ""
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -814,7 +787,7 @@
 					(hide yes)
 				)
 			)
-			(property "Footprint" "V2_Production:Order_Number"
+			(property "Footprint" "V2_Production:Revision"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -841,29 +814,10 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Enable" "0"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Order_Number_0_0"
-				(text "ORDER-NUMBER"
-					(at 0 0 0)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(symbol "Order_Number_0_1"
+			(symbol "Revision_0_1"
 				(rectangle
-					(start -8.89 1.27)
-					(end 8.89 -1.27)
+					(start -5.08 1.27)
+					(end 5.08 -1.27)
 					(stroke
 						(width 0)
 						(type default)
@@ -873,17 +827,32 @@
 					)
 				)
 			)
+			(symbol "Revision_1_1"
+				(text "Revision"
+					(at 0 0 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
 		)
-		(symbol "power:GND"
+		(symbol "V2_power:GND"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
+				(at 0 -7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -892,11 +861,12 @@
 				)
 			)
 			(property "Value" "GND"
-				(at 0 -3.81 0)
+				(at 0 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
 			(property "Footprint" ""
@@ -917,8 +887,8 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
+			(property "Description" ""
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -952,8 +922,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
-					(name "GND"
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -969,6 +939,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -1039,7 +1010,7 @@
 		(lib_id "V2_PCB_Devices:EtherCon_Horizontal")
 		(at 102.87 170.18 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1089,6 +1060,15 @@
 				(hide yes)
 			)
 		)
+		(property "Sim.Enable" "0"
+			(at 102.87 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "cube-cover"
 				(path "/6c8448b4-b04d-47e1-934e-e40cbe27a7be"
@@ -1102,7 +1082,7 @@
 		(lib_id "V2_Mechanical:MountingHole_2mm_Pad_4mm")
 		(at 107.95 66.04 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1117,7 +1097,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_2mm_Pad_4mm"
+		(property "Value" "2mm_Pad_4mm"
 			(at 111.76 67.3099 90)
 			(effects
 				(font
@@ -1144,7 +1124,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 107.95 66.04 0)
 			(effects
 				(font
@@ -1169,7 +1149,7 @@
 		(lib_id "V2_PCB_Devices:USB-C_Horizontal")
 		(at 153.67 168.91 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1219,6 +1199,15 @@
 				(hide yes)
 			)
 		)
+		(property "Sim.Enable" "0"
+			(at 153.67 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "cube-cover"
 				(path "/6c8448b4-b04d-47e1-934e-e40cbe27a7be"
@@ -1229,10 +1218,10 @@
 		)
 	)
 	(symbol
-		(lib_id "V2_Production:Order_Number")
+		(lib_id "V2_Production:Revision")
 		(at 191.77 140.97 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1245,7 +1234,7 @@
 				)
 			)
 		)
-		(property "Value" "ORDER-NUMBER"
+		(property "Value" "~"
 			(at 191.77 143.51 0)
 			(effects
 				(font
@@ -1254,7 +1243,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "V2_Production:Order_Number"
+		(property "Footprint" "V2_Production:Revision"
 			(at 191.77 146.05 0)
 			(effects
 				(font
@@ -1294,7 +1283,7 @@
 		(lib_id "V2_PCB_Devices:Button-top")
 		(at 156.21 140.97 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1344,6 +1333,15 @@
 				(hide yes)
 			)
 		)
+		(property "Sim.Enable" "0"
+			(at 156.21 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "cube-cover"
 				(path "/6c8448b4-b04d-47e1-934e-e40cbe27a7be"
@@ -1357,7 +1355,7 @@
 		(lib_id "V2_Mechanical:MountingHole_2mm_Pad_4mm")
 		(at 107.95 81.28 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1372,7 +1370,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_2mm_Pad_4mm"
+		(property "Value" "2mm_Pad_4mm"
 			(at 111.76 82.5499 90)
 			(effects
 				(font
@@ -1399,7 +1397,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 107.95 81.28 0)
 			(effects
 				(font
@@ -1424,7 +1422,7 @@
 		(lib_id "V2_Mechanical:MountingHole_3mm_Pad_8mm")
 		(at 198.12 58.42 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1438,7 +1436,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_3mm_Pad_8mm"
+		(property "Value" "3mm_Pad_8mm"
 			(at 217.805 59.69 90)
 			(effects
 				(font
@@ -1464,7 +1462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 198.12 58.42 0)
 			(effects
 				(font
@@ -1489,7 +1487,7 @@
 		(lib_id "V2_Mechanical:MountingHole_2mm_Pad_4mm")
 		(at 107.95 58.42 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1503,7 +1501,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_2mm_Pad_4mm"
+		(property "Value" "2mm_Pad_4mm"
 			(at 125.73 59.6899 90)
 			(effects
 				(font
@@ -1529,7 +1527,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 107.95 58.42 0)
 			(effects
 				(font
@@ -1554,7 +1552,7 @@
 		(lib_id "V2_Mechanical:MountingHole_3mm_Pad_8mm")
 		(at 198.12 73.66 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1568,7 +1566,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_3mm_Pad_8mm"
+		(property "Value" "3mm_Pad_8mm"
 			(at 217.805 74.93 90)
 			(effects
 				(font
@@ -1594,7 +1592,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 198.12 73.66 0)
 			(effects
 				(font
@@ -1616,7 +1614,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "V2_power:GND")
 		(at 195.58 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1640,6 +1638,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
@@ -1685,7 +1684,7 @@
 		(lib_id "V2_Mechanical:MountingHole_3mm_Pad_8mm")
 		(at 198.12 66.04 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1699,7 +1698,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_3mm_Pad_8mm"
+		(property "Value" "3mm_Pad_8mm"
 			(at 217.805 67.31 90)
 			(effects
 				(font
@@ -1725,7 +1724,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 198.12 66.04 0)
 			(effects
 				(font
@@ -1750,7 +1749,7 @@
 		(lib_id "V2_Mechanical:MountingHole_3mm_Pad_8mm")
 		(at 198.12 81.28 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1764,7 +1763,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_3mm_Pad_8mm"
+		(property "Value" "3mm_Pad_8mm"
 			(at 217.805 82.55 90)
 			(effects
 				(font
@@ -1790,7 +1789,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 198.12 81.28 0)
 			(effects
 				(font
@@ -1815,7 +1814,7 @@
 		(lib_id "V2_PCB_Devices:EtherCon_Horizontal")
 		(at 127 170.18 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1865,6 +1864,15 @@
 				(hide yes)
 			)
 		)
+		(property "Sim.Enable" "0"
+			(at 127 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "cube-cover"
 				(path "/6c8448b4-b04d-47e1-934e-e40cbe27a7be"
@@ -1878,7 +1886,7 @@
 		(lib_id "V2_Artwork:Board_cube")
 		(at 121.92 140.97 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1898,6 +1906,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "V2_Artwork:Board_cube_Small"
@@ -1927,6 +1936,15 @@
 				(hide yes)
 			)
 		)
+		(property "Sim.Enable" "0"
+			(at 121.92 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "cube-cover"
 				(path "/6c8448b4-b04d-47e1-934e-e40cbe27a7be"
@@ -1940,7 +1958,7 @@
 		(lib_id "V2_Mechanical:MountingHole_1mm")
 		(at 109.22 106.68 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -1954,7 +1972,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_1mm"
+		(property "Value" "1mm"
 			(at 121.285 107.95 0)
 			(effects
 				(font
@@ -1980,7 +1998,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole without connection"
 			(at 109.22 106.68 0)
 			(effects
 				(font
@@ -2002,7 +2020,7 @@
 		(lib_id "V2_Artwork:V2-logo")
 		(at 101.6 139.7 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -2021,6 +2039,7 @@
 				(font
 					(size 1.778 1.5113)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "V2_Artwork:Logo_Small"
@@ -2063,7 +2082,7 @@
 		(lib_id "V2_Mechanical:MountingHole_2mm_Pad_4mm")
 		(at 107.95 73.66 270)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -2078,7 +2097,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_2mm_Pad_4mm"
+		(property "Value" "2mm_Pad_4mm"
 			(at 111.76 74.9299 90)
 			(effects
 				(font
@@ -2105,7 +2124,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Mounting Hole with connection"
 			(at 107.95 73.66 0)
 			(effects
 				(font
@@ -2131,4 +2150,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
