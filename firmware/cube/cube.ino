@@ -10,7 +10,7 @@
 #include <Wire.h>
 #include <arm_math.h>
 
-V2DEVICE_METADATA("com.versioduo.cube", 1, "versioduo:samd:wave");
+V2DEVICE_METADATA("com.versioduo.cube", 2, "versioduo:samd:wave");
 
 static V2LED::WS2812       LED(2, PIN_LED_WS2812, &sercom5, SPI_PAD_3_SCK_1, PIO_SERCOM_ALT);
 static V2LED::WS2812       LEDExt(64, PIN_LED_WS2812_EXT, &sercom4, SPI_PAD_0_SCK_1, PIO_SERCOM);
@@ -1002,15 +1002,16 @@ private:
 static class MIDI {
 public:
   void loop() {
-    if (!Device.usb.midi.receive(&_midi))
+    if (!Device.usb.midi.receive(_midi))
       return;
 
-    if (_midi.getPort() == 0) {
+    if (_midi.port == 0) {
       Device.dispatch(&Device.usb.midi, &_midi);
 
     } else {
-      _midi.setPort(_midi.getPort() - 1);
-      Socket.send(&_midi);
+      V2Link::Packet p(_midi.port - 1, _midi);
+      p.midi.port = 0;
+      Socket.send(p);
     }
   }
 
@@ -1026,30 +1027,20 @@ public:
   }
 
 private:
-  V2MIDI::Packet _midi{};
-
   // Receive a host event from our parent device.
-  void receivePlug(V2Link::Packet* packet) override {
-    if (packet->getType() == V2Link::Packet::Type::MIDI) {
-      packet->copyTo(_midi);
-      Device.dispatch(&Plug, &_midi);
-    }
+  void receivePlug(V2Link::Packet& p) override {
+    if (p.type == V2Link::Packet::Type::MIDI)
+      Device.dispatch(&Plug, &p.midi);
   }
 
   // Forward children device events to the host.
-  void receiveSocket(V2Link::Packet* packet) override {
-    if (packet->getType() == V2Link::Packet::Type::MIDI) {
-      uint8_t address = packet->getAddress();
-      if (address == 0x0f)
-        return;
-
-      if (Device.usb.midi.connected()) {
-        packet->copyTo(_midi);
-        _midi.setPort(address + 1);
-        Device.usb.midi.send(&_midi);
-      }
+  void receiveSocket(V2Link::Packet& p) override {
+    if (p.type == V2Link::Packet::Type::MIDI) {
+      p.midi.port = p.address;
+      Device.usb.midi.send(p.midi);
     }
   }
+
 } Link;
 
 static class MIDIFile : public V2MIDI::File::Tracks {
