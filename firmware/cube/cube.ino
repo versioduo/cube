@@ -10,12 +10,12 @@
 #include <Wire.h>
 #include <arm_math.h>
 
-V2DEVICE_METADATA("com.versioduo.cube", 4, "versioduo:samd:wave");
+V2DEVICE_METADATA("com.versioduo.cube", 5, "versioduo:samd:wave");
 
 static V2LED::WS2812<2>    LED(PIN_LED_WS2812, sercom5, SPI_PAD_3_SCK_1, PIO_SERCOM_ALT);
 static V2LED::WS2812<64>   LEDExt(PIN_LED_WS2812_EXT, sercom4, SPI_PAD_0_SCK_1, PIO_SERCOM);
-static V2Link::Port        Plug(&SerialPlug, PIN_SERIAL_PLUG_TX_ENABLE);
-static V2Link::Port        Socket(&SerialSocket, PIN_SERIAL_SOCKET_TX_ENABLE);
+static V2Link::Port        Plug(&SerialPlug, PIN_SERIAL_PLUG_TX_ENABLE, "plug");
+static V2Link::Port        Socket(&SerialSocket, PIN_SERIAL_SOCKET_TX_ENABLE, "socket");
 static V2Base::Analog::ADC ADC(1);
 
 static class Power : public V2PowerSupply {
